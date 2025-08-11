@@ -1,72 +1,86 @@
 /* ========== HEADER STYLES ========== */
 header {
-  height: 50px; /* Fixed height of the header section */
-  line-height: 50px; /* Vertically center text/content by aligning line height with height */
-  background: #2d3748; /* Dark gray-blue background color (Tailwind's gray-800) */
-  color: white; /* Text color set to white for contrast */
+  position: fixed;     /* Stay at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background: #2d3748;
+  color: white;
+  text-align: center;
+  padding-left: 15px;
+  box-sizing: border-box;
+  z-index: 10;         
 }
 
 /* ========== FOOTER STYLES ========== */
 footer {
-  height: 30px; /* Fixed height of the footer */
-  line-height: 30px; /* Align text vertically centered */
-  background: #2d3748; /* Same dark background color as header for design consistency */
-  color: white; /* Text color set to white */
-  font-size: 8pt; /* Small font size suitable for footer text */
-  text-align: center; /* Center-align the footer text horizontally */
+  position: fixed;     
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background: #fcfcfd;
+  color: rgb(34, 32, 32);
+  font-size: 8pt;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 /* ========== MAIN SECTION STYLES ========== */
 section {
-  height: calc(100% - 100px); /* Full height minus header (50px) and footer (30px) + section padding (20px total) */
-  width: calc(100% - 20px); /* Leave 10px padding on both left and right */
-  overflow: auto; /* Enable scrollbars if content exceeds the height */
-  display: grid; /* Use CSS Grid to layout child elements (like .card) */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-  /* Create responsive grid: as many columns as fit, min width 280px, max 1 fraction of space */
-  gap: 20px; /* Space between the grid items */
-  padding: 10px; /* Padding around the section content */
+  /* Fill all available space between header and footer */
+  position: absolute;
+  top: 50px;      /* Below header */
+  bottom: 50px;   /* Above footer */
+  left: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  grid-template-rows: repeat(2, 1fr);    /* 2 rows */
+  gap: 20px;       /* Space between cards */
+  padding: 20px;   /* Space around cards */
+  box-sizing: border-box;
 }
 
-/* ========== LOGO TEXT STYLING ========== */
-.logo {
-  font-size: 16pt; /* Larger font size for branding/logo emphasis */
-  font-weight: bold; /* Bold font for visual prominence */
-  margin-left: 15px; /* Adds space to the left of the logo */
-}
-
-/* ========== CARD CONTAINER STYLING ========== */
+/* ========== CARD STYLING ========== */
 .card {
-  width: 100%; /* Card takes full width of its grid column */
-  min-height: 250px; /* Ensures a minimum height for visual balance */
-  background: white; /* Card background color set to white */
-  border-radius: 10px; /* Rounded corners for smooth look */
-  overflow: hidden; /* Clips child content that overflows (like images) */
-  box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.2); 
-  /* Adds subtle depth using shadow; simulates elevation */
-  cursor: pointer; /* Shows pointer cursor to indicate interactivity */
-  text-align: center; /* Centers all text content horizontally */
-  transition: transform 0.3s ease; 
-  /* Smooth animation when card is hovered or transformed */
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 /* ========== IMAGE INSIDE CARD ========== */
 .card img {
-  width: 100%; /* Image stretches full width of the card */
-  height: 200px; /* Fixed height to maintain uniformity among cards */
-  display: block; /* Removes default inline spacing below image */
-  cursor: pointer; /* Indicates the image is clickable */
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 /* ========== LABEL INSIDE CARD ========== */
 .card label {
-  display: block; /* Forces label to occupy its own line */
-  padding: 10px; /* Adds spacing around the label text */
-  cursor: pointer; /* Indicates label is interactive (e.g., could trigger action) */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: white;
+  color:#2d3748;
+  cursor: pointer;
 }
 
 /* ========== HOVER EFFECT FOR CARD ========== */
 .card:hover {
-  transform: translateY(-8px); 
-  /* On hover, card is lifted upward to provide visual feedback */
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
