@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage" : "https://Abhiram-JV.github.io/Grids/",
+  "homepage": "https://Abhiram-JV.github.io/Grids/",
   "scripts": {
     "lint": "eslint .",
     "dev": "vite",
